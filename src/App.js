@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 
-import SearchForm from "./SearchForm";
 
 class App extends Component {
 
@@ -13,22 +12,22 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch("https://api.punkapi.com/v2/beers")
+    fetch("http://hn.algolia.com/api/v1/search?query=Javascript")
+      .then(response => response.json())
+      .then(data => console.log(data))
       .then( res => {
-          const articlesArray = res.data
+          const articlesArray = res
           this.setState({ articlesArray })
       })
+      .catch(err => console.error(err))
   }
 
   
 
   render() {
     return (
-      <ol>{this.state.articlesArray.map((article, index) => {
-        return (
-          <SearchForm />
-        )
-      })}</ol>
+          <h3>News Articles</h3>
+          // <ol>{this.state.articlesArray}</ol>
     )
   }
 
