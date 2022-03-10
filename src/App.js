@@ -1,3 +1,4 @@
+import { toHaveDisplayValue } from '@testing-library/jest-dom/dist/matchers';
 import React, { Component } from 'react';
 import './App.css';
 
@@ -14,11 +15,7 @@ class App extends Component {
   componentDidMount() {
     fetch("http://hn.algolia.com/api/v1/search?query=Javascript")
       .then(response => response.json())
-      .then(data => console.log(data))
-      .then( res => {
-          const articlesArray = res
-          this.setState({ articlesArray })
-      })
+      .then(data => this.setState({articlesArray: data.hits}))
       .catch(err => console.error(err))
   }
 
