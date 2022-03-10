@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+import { toHaveDisplayValue } from '@testing-library/jest-dom/dist/matchers';
+import React, { Component } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends Component {
+
+  constructor() {
+    super();
+    this.state = {
+      articlesArray: []
+    }
+  }
+
+  componentDidMount() {
+    fetch("http://hn.algolia.com/api/v1/search?query=Javascript")
+      .then(response => response.json())
+      .then(data => this.setState({articlesArray: data.hits}))
+      .catch(err => console.error(err))
+  }
+
+  
+
+  render() {
+    return (
+          <h3>News Articles</h3>
+          // <ol>{this.state.articlesArray}</ol>
+    )
+  }
+
 }
+
 
 export default App;
