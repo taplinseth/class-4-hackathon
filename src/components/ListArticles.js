@@ -1,7 +1,7 @@
 
    
 import React, { Component } from 'react';
-import DisplayArticleCard from './ArticlesCard'
+import ArticlesCard from './ArticlesCard'
 
 class ListArticles extends Component {
     constructor(props){
