@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class DisplayArticleCard extends Component {
+class ArticlesCard extends Component {
 
   render() {
     const items = this.props.items
@@ -14,4 +14,4 @@ class DisplayArticleCard extends Component {
   }
 }
 
-export default DisplayArticleCard;
+export default ArticlesCard;
