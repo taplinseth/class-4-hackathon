@@ -1,10 +1,17 @@
-import react, {Component} from 'react';
-import Articles from './ListArticles';
+import React, { Component } from 'react'
 
-export default function ArticlesCard(props) {
+class DisplayArticleCard extends Component {
+
+  render() {
+    const items = this.props.items
+
     return (
-        <table class="list-of-articles">
-            <tr>{props.getRowData}</tr>
-        </table>
+      <li className="article-list">
+        <div id="title">{items.title}</div>
+        <div id="author-etc"> by {items.author} | {items.num_comments} Comments</div>
+      </li>
     )
+  }
 }
+
+export default DisplayArticleCard;

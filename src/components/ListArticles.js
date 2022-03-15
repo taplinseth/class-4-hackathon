@@ -1,13 +1,32 @@
-import { Component } from "react";
 
-export default class Articles extends Component {
+   
+import React, { Component } from 'react';
+import DisplayArticleCard from './ArticlesCard'
 
-    getRowData = dummyObject.hits.map((row)=>{
-        return (
-            <li style={{listStyle: "none"}}>               
-                <tr id="title">{row.title}</tr>
-                <tr id="author">{row.author}</tr>
-            </li>
-        )
-    })
+class ListArticles extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
+        articlesArray: []
+        }
+    }
+
+    render() {
+      return(
+        <div>
+          <header id="article-header">
+            <div id="article-header-content">Hacker News</div>  
+          </header>
+          <div id="articles">
+              {this.props.articles.map((article) => {return <DisplayArticleCard items={article} />
+      })}
+          </div>
+        </div>
+      );
+    }
 }
+
+
+export default ListArticles;
+
+
