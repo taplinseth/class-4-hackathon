@@ -7,8 +7,8 @@ class DisplayArticleCard extends Component {
 
     return (
       <li className="article-list">
-        <div id="title">{items.title}</div>
-        <div id="author-etc"> by {items.author} | {items.num_comments} Comments</div>
+        <a id="title"  href={items.url}>{items.title}</a>
+        <div id="author-etc"> by {items.author} | {items.points} | {items.created_at} | {items.num_comments} Comments</div>
       </li>
     )
   }
