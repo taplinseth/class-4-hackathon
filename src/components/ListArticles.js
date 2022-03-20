@@ -18,7 +18,7 @@ class ListArticles extends Component {
             <div id="article-header-content">Hacker News</div>  
           </header>
           <div id="articles">
-              {this.props.articles.map((article) => {return <DisplayArticleCard items={article} />
+              {this.props.articles.map((article) => {return <ArticlesCard items={article} />
       })}
           </div>
         </div>
