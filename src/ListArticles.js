@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const ListArticles = (props) => {
-    return (
-        console.log("hello")
-    )
+
+        return (
+          <div>
+            <header>
+              <h1>Results</h1>
+              <ul>{this.state.items.map((item, index)=>{
+                return <li key={index} onClick={() => this.delete(index)}>{this.state.items[index]}</li>
+              })}</ul>
+            </header>
+          </div>
+        );
+
 }
 
 export default ListArticles;

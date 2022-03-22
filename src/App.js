@@ -30,7 +30,7 @@ class App extends Component {
     // <ol>{this.state.articlesArray}</ol>
     return (
       <div>
-        <h3>News Articles</h3>
+        <h1>News Articles</h1>
           <SearchForm getSearchInput={this.getSearchInput}/>
       </div>
           // <ListArticles />
