@@ -15,16 +15,17 @@ class App extends Component {
     }
   }
 
+  getSearchInput(input) {
+    return input;
+  }
+
   getApiData(input) {
-    fetch(`http://hn.algolia.com/api/v1/search?query=${input}`)
+    fetch(`http://hn.algolia.com/api/v1/search?query=${this.getSearchInput()}`)
       .then(response => response.json())
       .then(data => this.setState({articlesArray: data.hits}))
       .catch(err => console.error(err))
   }
 
-  getSearchInput(input) {
-    console.log(input);
-  }
 
   render() {
     // <ol>{this.state.articlesArray}</ol>
