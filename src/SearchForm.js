@@ -13,14 +13,12 @@ const SearchForm = (props) => {
       }
 
     return (
-        <div className="App">
-        <header className="App-header">
-          <h1>Search</h1>
+        <div>
+          <h3>Search</h3>
           <form onSubmit={formSubmit}>
             <input onChange={inputUpdate}/>
             <button>Submit</button>
           </form>
-        </header>
       </div>
     )
 }

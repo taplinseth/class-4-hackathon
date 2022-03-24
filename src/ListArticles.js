@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const ListArticles = (props) => {
-    return (
-        console.log("hello")
-    )
+
+        return (
+          <div>
+              <h1>Articles</h1>
+              <ul>{this.state.articlesArray.map((item, index)=>{
+                return <li key={index}>{this.state.items[index]}</li>
+              })}</ul>
+          </div>
+        );
+
 }
 
 export default ListArticles;
