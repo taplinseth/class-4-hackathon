@@ -4,12 +4,10 @@ const ListArticles = (props) => {
 
         return (
           <div>
-            <header>
-              <h1>Results</h1>
-              <ul>{this.state.items.map((item, index)=>{
-                return <li key={index} onClick={() => this.delete(index)}>{this.state.items[index]}</li>
+              <h1>Articles</h1>
+              <ul>{this.state.articlesArray.map((item, index)=>{
+                return <li key={index}>{this.state.items[index]}</li>
               })}</ul>
-            </header>
           </div>
         );
 
