@@ -1,24 +1,28 @@
 import { toHaveDisplayValue } from '@testing-library/jest-dom/dist/matchers';
 import React, { Component } from 'react';
 import './App.css';
-import DisplayArticleCard from './DisplayArticleCard';
-import ListArticles from './ListArticles';
+import ListArticles from './components/ListArticles';
 import SearchForm from './SearchForm';
 
+const searchByDate = 'search_by_date?query='
+const searchByTag = 'search?tags='
+const searchByTitle = 'search?query=';
 
 class App extends Component {
 
-  constructor() {
-    super()=
-    this.state = {
+    state = {
+      typeChoice: searchByTitle,
+      searchType: [searchByDate, searchByTag, searchByTitle],
       articlesArray: []
     }
-  }
 
   
+  componentDidMount() {
+    this.getApiData();
+  }
 
   getApiData = (input) => {
-    fetch(`http://hn.algolia.com/api/v1/search?query=${input}`)
+    fetch(`http://hn.algolia.com/api/v1/${this.state.typeChoice}${input}`)
       .then(response => response.json())
       .then(data => this.setState({articlesArray: data.hits}))
       .catch(err => console.error(err))
@@ -32,13 +36,16 @@ class App extends Component {
 
 
   render() {
-    // <ol>{this.state.articlesArray}</ol>
+
     return (
-      <div>
+      <div id='news-articles'>
         <h1>News Articles</h1>
           <SearchForm getSearchInput={this.getSearchInput}/>
-          {/* <ListArticles />
-          <DisplayArticleCard /> */}
+          <ol>
+            <ListArticles articles={this.state.articlesArray} />
+          </ol>
+
+          {/* <ArticleCard /> */}
       </div>
 
 
