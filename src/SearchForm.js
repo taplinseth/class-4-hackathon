@@ -12,13 +12,33 @@ const SearchForm = (props) => {
         props.getSearchInput(input)
       }
 
+    const handleChange = (event) => {
+      const { name, value } = event.target;
+
+      this.setState({
+        [name]: value
+      })
+    }
+
     return (
         <div>
           <h3>Search</h3>
           <form onSubmit={formSubmit}>
-            <input onChange={inputUpdate}/>
+            <input/>
             <button>Submit</button>
           </form>
+          <label>
+            <input type="radio" value="date" onChange={handleChange}/>
+            Date
+          </label>
+          <label>
+            <input type="radio" value="tag" onChange={handleChange}/>
+            Tag
+          </label>
+          <label>
+            <input type="radio" value="title" onChange={handleChange}/>
+            Title
+          </label>
       </div>
     )
 }
@@ -27,3 +47,5 @@ export default SearchForm;
 
 // takes input of string into input element
 // form with input element and submit button
+
+// search by tag date author title
